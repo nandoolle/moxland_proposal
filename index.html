@@ -261,8 +261,8 @@
         }
 
         .contact-section {
-            background: #eaeaea;
-            color: #000000;
+            border: 1px solid #404040 !important;
+            background: #2a2a2a;
             padding: 40px;
             margin-top: 40px;
             text-align: center;
@@ -297,45 +297,210 @@
         }
 
         @media print {
+            @page {
+                margin: 0;
+                size: A4;
+                background: #0a0a0a;
+                bleed: 3mm;
+            }
+
+            html {
+                background: #0a0a0a !important;
+                margin: 0;
+                padding: 0;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+
             body {
-                padding: 20px;
+                margin: 0;
+                padding: 20mm;
+                min-height: 100vh;
                 font-size: 10pt;
-                background: white !important;
-                color: black !important;
+                background: #0a0a0a !important;
+                color: #e0e0e0 !important;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+                color-adjust: exact !important;
+                box-sizing: border-box;
+            }
+
+            body::before {
+                content: "";
+                position: fixed;
+                top: -10mm;
+                left: -10mm;
+                right: -10mm;
+                bottom: -10mm;
+                background: #0a0a0a !important;
+                z-index: -1;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
             }
 
             .container {
-                background: white !important;
+                background: #0a0a0a !important;
+                max-width: 100%;
+                position: relative;
+                z-index: 1;
             }
 
-            .header,
+            .header {
+                border-bottom: 3px solid #ffffff !important;
+                background: #0a0a0a !important;
+            }
+
+            .header h1,
             .section h2,
             .section h3,
             .plugin-title,
             .feature-item h4,
+            .tech-item strong,
             .pricing-item,
-            .pricing-value {
-                color: black !important;
+            .pricing-value,
+            .deliverables-list li strong,
+            .timeline-week {
+                color: #ffffff !important;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
             }
 
-            .plugin-overview,
-            .feature-item,
+            .header .subtitle,
+            .plugin-subtitle,
+            .feature-item p,
+            .tech-item span,
+            .timeline-desc,
+            .deliverables-list li {
+                color: #b0b0b0 !important;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+
+            .plugin-overview {
+                background: #2a2a2a !important;
+                border-left: 4px solid #ffffff !important;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+
+            .feature-item {
+                background: #2a2a2a !important;
+                border: 1px solid #404040 !important;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+
+            .tech-specs {
+                background: #404040 !important;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+
             .tech-item {
-                background: white !important;
-                border-color: black !important;
+                background: #2a2a2a !important;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
             }
 
-            .section {
-                page-break-inside: avoid;
+            .timeline-item {
+                border-bottom: 1px solid #404040 !important;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
             }
 
             .pricing-table {
+                border: none !important;
+                outline: 1px solid #404040 !important;
                 page-break-inside: avoid;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+                color-adjust: exact !important;
+            }
+
+            div.pricing-table {
+                border: 1px solid #404040 !important;
+                outline: 1px solid #404040 !important;
+            }
+
+            .pricing-header {
+                background: #696969 !important;
+                color: #000000 !important;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+
+            .pricing-header h3 {
+                color: #000000 !important;
+            }
+
+            .pricing-body {
+                background: #2a2a2a !important;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+
+            .pricing-row {
+                border-bottom: 1px solid #404040 !important;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+
+            .pricing-row:last-child {
+                border-top: 2px solid #ffffff !important;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+
+            .deliverables-list li {
+                border-bottom: 1px solid #404040 !important;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
             }
 
             .contact-section {
-                background: black !important;
-                color: white !important;
+                background: #2a2a2a !important;
+                border: 1px solid #404040 !important;
+                color: #e0e0e0 !important;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+                page-break-inside: avoid;
+            }
+
+            .contact-section h2 {
+                color: #ffffff !important;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+
+            .contact-section p {
+                color: #b0b0b0 !important;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+
+            .contact-item {
+                color: #e0e0e0 !important;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+
+            .contact-item strong {
+                color: #ffffff !important;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+
+            .section {
+                <!-- page-break-inside: avoid; -->
+            }
+
+            .page-break {
+                page-break-before: always;
+                page-break-after: auto;
+            }
+
+            button {
+                display: none !important;
             }
         }
     </style>
@@ -382,7 +547,7 @@
                     </div>
                 </div>
             </div>
-
+            <br>
             <div class="section">
                 <h2>Aplicação 1: Sistema de Gerenciamento de Cartas em Lote</h2>
                 <div class="plugin-overview">
@@ -390,6 +555,8 @@
                     <div class="plugin-subtitle">Otimize listagem em lote, compras e gerenciamento de inventário para
                         operações de trading cards</div>
                 </div>
+
+                <div class="page-break"></div>
 
                 <h3>Funcionalidades Principais</h3>
                 <div class="feature-grid">
@@ -429,7 +596,6 @@
                     </div>
                 </div>
 
-                <div class="page-break"></div>
                 <h3>Capacidades Avançadas</h3>
                 <div class="feature-grid">
                     <div class="feature-item">
@@ -453,8 +619,9 @@
                 </div>
             </div>
 
-
+            <br>
             <div class="section">
+
                 <h2>Aplicação 2: Assistente de Cliente Powered by IA</h2>
                 <div class="plugin-overview">
                     <div class="plugin-title">Assistente de Chat IA Mox Land</div>
@@ -521,7 +688,7 @@
                     </div>
                 </div>
             </div>
-
+            <br>
             <div class="section">
                 <h2>Arquitetura Técnica</h2>
 
@@ -545,6 +712,8 @@
                     </div>
                 </div>
 
+                <div class="page-break"></div>
+
                 <h3>Segurança & Performance</h3>
                 <div class="feature-grid">
                     <div class="feature-item">
@@ -565,7 +734,7 @@
                     </div>
                 </div>
             </div>
-
+            <br>
             <div class="section">
                 <h2>Cronograma de Desenvolvimento</h2>
                 <div class="timeline">
@@ -596,7 +765,8 @@
                     </div>
                 </div>
             </div>
-
+            <br>
+            <div class="page-break"></div>
             <div class="section">
                 <h2>Entregáveis</h2>
                 <ul class="deliverables-list">
@@ -618,11 +788,12 @@
                         incluídos</li>
                 </ul>
             </div>
-
+            <br>
             <div class="section">
+                <div class="page-break"></div>
                 <h2>Detalhamento do Investimento</h2>
                 <p><strong>Taxa de Desenvolvimento:</strong> R$120 por hora</p>
-                <div class="pricing-table">
+                <div class="pricing-table" style="border: 1px solid #404040 !important; ">
                     <div class="pricing-header">
                         <h3>Custos de Desenvolvimento</h3>
                     </div>
@@ -655,9 +826,11 @@
                 </div>
             </div>
 
+            <br>
             <div class="section">
+                <div class="page-break"></div>
                 <h2>Opções de Manutenção Contínua</h2>
-                <div class="pricing-table">
+                <div class="pricing-table" style="border: 1px solid #404040 !important; ">
                     <div class="pricing-header">
                         <h3>Planos de Manutenção</h3>
                     </div>
@@ -682,6 +855,7 @@
                 </div>
             </div>
 
+            <br>
             <div class="section">
                 <h2>Por Que Escolher Esta Solução</h2>
                 <div class="feature-grid">
@@ -708,10 +882,13 @@
             </div>
         </div>
 
+        <br>
         <div class="contact-section">
-            <h2>Próximos Passos</h2>
-            <p>Transforme as operações da sua loja TCG com soluções tecnológicas avançadas projetadas especificamente
-                para a indústria de trading cards.</p>
+            <h2 style="color: #fff;">Próximos Passos</h2>
+            <p style="border-top: 2px solid #333; padding-top: 20px">
+              Transforme as operações da sua loja TCG com soluções tecnológicas avançadas projetadas especificamente 
+              para a indústria de trading cards. 
+            </p>
 
             <div class="contact-info">
                 <div class="contact-item">
@@ -721,7 +898,7 @@
                 </div>
                 <div class="contact-item">
                     <strong>Consulta por Telefone</strong>
-                    +55 (11) 96373-9666<br>
+                    +55 (11) 9637f3-9666<br>
                     Agende uma discussão detalhada
                 </div>
                 <div class="contact-item">
@@ -736,7 +913,7 @@
                 </div>
             </div>
 
-            <div style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #333;">
+            <div style="margin-top: 40px; padding-top: 20px; border-top: 2px solid #333;">
                 <p style="font-size: 10pt; margin: 0;">Esta proposta inclui desenvolvimento completo, testes, deploy,
                     documentação e suporte pós-lançamento de 30 dias. Personalizações adicionais e integrações podem ser
                     discutidas com base nos requisitos específicos do negócio.</p>
@@ -798,3 +975,4 @@
 </body>
 
 </html>
+
