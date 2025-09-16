@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mox Land Plugins Shopify - Proposta Técnica</title>
+    <link rel="icon" type="image/avif" href="MoxLand_-_Logo5.avif">
+    <link rel="shortcut icon" type="image/avif" href="MoxLand_-_Logo5.avif">
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 40px 20px;
+            background: #0a0a0a;
+            color: #e0e0e0;
+            font-size: 11pt;
+        }
+
+        .container {
+            max-width: 210mm;
+            margin: 0 auto;
+            background: #0a0a0a;
+            position: relative;
+        }
+
+        .header {
+            border-bottom: 3px solid #ffffff;
+            padding-bottom: 30px;
+            margin-bottom: 40px;
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .header-logo {
+            width: 120px;
+            height: 120px;
+            flex-shrink: 0;
+        }
+
+        .header-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .header-content {
+            flex: 1;
+        }
+
+        .header h1 {
+            font-size: 36pt;
+            font-weight: 900;
+            letter-spacing: 8px;
+            margin: 0 0 5px 0;
+            color: #ffffff;
+            text-transform: uppercase;
+        }
+
+        .header .subtitle {
+            font-size: 12pt;
+            color: #b0b0b0;
+            margin: 5px 0;
+            font-weight: 300;
+        }
+
+        .content {
+            padding: 0;
+        }
+
+        .section {
+            margin-bottom: 35px;
+        }
+
+        .section h2 {
+            font-size: 16pt;
+            font-weight: 700;
+            color: #ffffff;
+            margin: 30px 0 15px 0;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .section h3 {
+            font-size: 13pt;
+            font-weight: 600;
+            color: #ffffff;
+            margin: 20px 0 10px 0;
+        }
+
+        .plugin-overview {
+            background: #2a2a2a;
+            border-left: 4px solid #ffffff;
+            padding: 25px 30px;
+            margin: 20px 0;
+        }
+
+        .plugin-title {
+            font-size: 14pt;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 10px;
+        }
+
+        .plugin-subtitle {
+            font-size: 11pt;
+            color: #b0b0b0;
+            margin-bottom: 15px;
+            font-style: italic;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .feature-item {
+            background: #2a2a2a;
+            border: 1px solid #404040;
+            padding: 20px;
+            border-radius: 0;
+        }
+
+        .feature-item h4 {
+            font-size: 12pt;
+            font-weight: 600;
+            margin: 0 0 8px 0;
+            color: #ffffff;
+        }
+
+        .feature-item p {
+            margin: 0;
+            font-size: 10pt;
+            line-height: 1.5;
+            color: #b0b0b0;
+        }
+
+        .tech-specs {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1px;
+            background: #404040;
+            margin: 20px 0;
+        }
+
+        .tech-item {
+            background: #2a2a2a;
+            padding: 15px;
+            text-align: center;
+        }
+
+        .tech-item strong {
+            display: block;
+            font-size: 10pt;
+            font-weight: 600;
+            color: #ffffff;
+            margin-bottom: 5px;
+        }
+
+        .tech-item span {
+            font-size: 9pt;
+            color: #b0b0b0;
+        }
+
+        .timeline {
+            margin: 20px 0;
+        }
+
+        .timeline-item {
+            display: grid;
+            grid-template-columns: 100px 1fr;
+            gap: 20px;
+            margin: 15px 0;
+            padding: 12px 0;
+            border-bottom: 1px solid #404040;
+        }
+
+        .timeline-week {
+            font-weight: 700;
+            font-size: 10pt;
+            color: #ffffff;
+        }
+
+        .timeline-desc {
+            font-size: 10pt;
+            color: #b0b0b0;
+        }
+
+        .pricing-table {
+            border: 2px solid #ffffff;
+            margin: 20px 0;
+        }
+
+        .pricing-header {
+            background: #696969;
+            color: #000000;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .pricing-header h3 {
+            margin: 0;
+            font-size: 16pt;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .pricing-body {
+            padding: 30px;
+            background: #2a2a2a;
+        }
+
+        .pricing-row {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 20px;
+            padding: 15px 0;
+            border-bottom: 1px solid #404040;
+        }
+
+        .pricing-row:last-child {
+            border-bottom: none;
+            border-top: 2px solid #ffffff;
+            margin-top: 20px;
+            padding-top: 20px;
+            font-weight: 700;
+        }
+
+        .pricing-item {
+            font-size: 12pt;
+            color: #ffffff;
+        }
+
+        .pricing-value {
+            font-size: 12pt;
+            font-weight: 700;
+            text-align: right;
+            color: #ffffff;
+        }
+
+        .deliverables-list {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0;
+        }
+
+        .deliverables-list li {
+            padding: 12px 0;
+            border-bottom: 1px solid #404040;
+            font-size: 11pt;
+        }
+
+        .deliverables-list li strong {
+            color: #ffffff;
+            font-weight: 600;
+        }
+
+        .contact-section {
+            background: #eaeaea;
+            color: #000000;
+            padding: 40px;
+            margin-top: 40px;
+            text-align: center;
+        }
+
+        .contact-section h2 {
+            color: #000000;
+            margin-top: 0;
+        }
+
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin: 30px 0;
+            text-align: left;
+        }
+
+        .contact-item {
+            font-size: 11pt;
+        }
+
+        .contact-item strong {
+            display: block;
+            font-size: 12pt;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+
+        .page-break {
+            page-break-before: always;
+        }
+
+        @media print {
+            body {
+                padding: 20px;
+                font-size: 10pt;
+                background: white !important;
+                color: black !important;
+            }
+
+            .container {
+                background: white !important;
+            }
+
+            .header,
+            .section h2,
+            .section h3,
+            .plugin-title,
+            .feature-item h4,
+            .pricing-item,
+            .pricing-value {
+                color: black !important;
+            }
+
+            .plugin-overview,
+            .feature-item,
+            .tech-item {
+                background: white !important;
+                border-color: black !important;
+            }
+
+            .section {
+                page-break-inside: avoid;
+            }
+
+            .pricing-table {
+                page-break-inside: avoid;
+            }
+
+            .contact-section {
+                background: black !important;
+                color: white !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="header-logo">
+                <img src="MoxLand_-_Logo5.avif" alt="Mox Land Logo">
+            </div>
+            <div class="header-content">
+                <h1>MOX LAND</h1>
+                <div class="subtitle">Proposta de Desenvolvimento de Plugins Shopify</div>
+                <div class="subtitle">Soluções Avançadas para Loja de Trading Card Game</div>
+                <div class="subtitle">São Paulo, Brasil • fernando.olle@icloud.com • +55 (11) 96373-9666</div>
+            </div>
+        </div>
+
+        <div class="content">
+            <div class="section">
+                <h2>Visão Geral do Projeto</h2>
+                <p>Esta proposta apresenta o desenvolvimento de dois plugins especializados para Shopify, projetados
+                    especificamente para a loja Mox Land Trading Card Game. Essas aplicações irão aprimorar a
+                    experiência do cliente, otimizar operações em lote e fornecer assistência inteligente para
+                    negociação e compra de cartas.</p>
+
+                <div class="tech-specs">
+                    <div class="tech-item">
+                        <strong>Plataforma</strong>
+                        <span>Compatível com Shopify Plus</span>
+                    </div>
+                    <div class="tech-item">
+                        <strong>Frontend</strong>
+                        <span>React.js + TypeScript</span>
+                    </div>
+                    <div class="tech-item">
+                        <strong>Backend</strong>
+                        <span>Node.js + NestJS</span>
+                    </div>
+                    <div class="tech-item">
+                        <strong>Integração IA</strong>
+                        <span>OpenAI + Treinamento Personalizado</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>Aplicação 1: Sistema de Gerenciamento de Cartas em Lote</h2>
+                <div class="plugin-overview">
+                    <div class="plugin-title">Plugin de Operações TCG em Lote</div>
+                    <div class="plugin-subtitle">Otimize listagem em lote, compras e gerenciamento de inventário para
+                        operações de trading cards</div>
+                </div>
+
+                <h3>Funcionalidades Principais</h3>
+                <div class="feature-grid">
+                    <div class="feature-item">
+                        <h4>Sistema de Import/Export CSV</h4>
+                        <p>Upload em lote de listas de cartas com nomes de sets, números das cartas, condições e
+                            cálculos automatizados de preços</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4>Integração com Banco de Dados</h4>
+                        <p>Preenchimento automático de informações de cartas a partir do TCGPlayer, Scryfall e bancos de
+                            dados personalizados</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4>Precificação por Condição</h4>
+                        <p>Suporte para graduações de condição NM, LP, MP, HP, DMG com ajustes automáticos de preços</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4>Motor de Reconhecimento de Sets</h4>
+                        <p>Detecção automática de sets e categorização para Magic: The Gathering, Pokémon, Yu-Gi-Oh!</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4>Sincronização de Inventário em Tempo Real</h4>
+                        <p>Atualizações ao vivo do inventário em todos os canais de vendas e plataformas</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4>Rastreamento de Preços de Mercado</h4>
+                        <p>Monitoramento automatizado de preços com ajustes em lote baseados em porcentagem</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4>Gerenciamento de Imagens</h4>
+                        <p>Busca automática de imagens de cartas, otimização e integração com CDN</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4>Integração de Lista de Compra</h4>
+                        <p>Sistema de lista de compra voltado para o cliente com geração instantânea de cotações</p>
+                    </div>
+                </div>
+
+                <div class="page-break"></div>
+                <h3>Capacidades Avançadas</h3>
+                <div class="feature-grid">
+                    <div class="feature-item">
+                        <h4>Reconhecimento OCR de Cartas</h4>
+                        <p>Upload de fotos para identificar e catalogar automaticamente cartas usando visão
+                            computacional</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4>Dashboard de Analytics</h4>
+                        <p>Relatórios abrangentes com métricas de vendas, rotatividade de inventário e análise de lucro
+                        </p>
+                    </div>
+                    <div class="feature-item">
+                        <h4>Sistema de Templates</h4>
+                        <p>Templates predefinidos para diferentes jogos de cartas, sets e tipos de operações em lote</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4>Hub de Integração de APIs</h4>
+                        <p>Conecte-se com múltiplos marketplaces e serviços de precificação simultaneamente</p>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="section">
+                <h2>Aplicação 2: Assistente de Cliente Powered by IA</h2>
+                <div class="plugin-overview">
+                    <div class="plugin-title">Assistente de Chat IA Mox Land</div>
+                    <div class="plugin-subtitle">Suporte inteligente ao cliente com conhecimento específico de TCG e
+                        recomendações personalizadas</div>
+                </div>
+
+                <h3>Funcionalidades Principais</h3>
+                <div class="feature-grid">
+                    <div class="feature-item">
+                        <h4>Consultas de Preços de Produtos</h4>
+                        <p>Consultas instantâneas de preços com precificação baseada em condição e disponibilidade em
+                            tempo real</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4>Recomendações Inteligentes</h4>
+                        <p>Sugestões powered by IA baseadas no histórico do cliente e níveis atuais de inventário</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4>Sistema de Rastreamento de Pedidos</h4>
+                        <p>Status de pedidos em tempo real e informações de envio para clientes autenticados</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4>Listas de Compra em Lote</h4>
+                        <p>Gere listas otimizadas de compras em lote baseadas nos requisitos e orçamento do cliente</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4>Assistente de Construção de Deck</h4>
+                        <p>Ajude clientes a completar decks competitivos usando o inventário disponível na loja</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4>Base de Conhecimento TCG</h4>
+                        <p>Informações abrangentes sobre sets de cartas, raridades, formatos e valores de mercado</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4>Automação de Políticas da Loja</h4>
+                        <p>Respostas automatizadas para envios, devoluções, trocas e políticas da loja</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4>Agendamento de Consultas</h4>
+                        <p>Agende visitas presenciais, consultorias e participação em eventos</p>
+                    </div>
+                </div>
+
+                <div class="page-break"></div>
+                <h3>Capacidades Avançadas de IA</h3>
+                <div class="feature-grid">
+                    <div class="feature-item">
+                        <h4>Processamento de Linguagem Natural</h4>
+                        <p>Compreenda consultas complexas sobre cartas, termos de gíria e referências multi-jogos</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4>Motor de Personalização</h4>
+                        <p>Aprenda preferências dos clientes, padrões de compra e interesses de jogos ao longo do tempo
+                        </p>
+                    </div>
+                    <div class="feature-item">
+                        <h4>Integração de Inventário</h4>
+                        <p>Verificação de estoque em tempo real com notificações automáticas de disponibilidade</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4>Sistema de Alertas de Preço</h4>
+                        <p>Notifique clientes quando cartas desejadas ficam disponíveis ou atingem preços-alvo</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>Arquitetura Técnica</h2>
+
+                <h3>Infraestrutura de Backend</h3>
+                <div class="feature-grid">
+                    <div class="feature-item">
+                        <h4>Integração com API Shopify</h4>
+                        <p>Utilização de APIs GraphQL e REST para sincronização perfeita de dados</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4>Arquitetura de Banco de Dados</h4>
+                        <p>PostgreSQL para dados transacionais com cache Redis para performance</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4>Serviços de IA</h4>
+                        <p>Integração com API OpenAI com fine-tuning personalizado para expertise no domínio TCG</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4>Infraestrutura de Nuvem</h4>
+                        <p>Deploy AWS com armazenamento S3, CDN CloudFront e auto-scaling</p>
+                    </div>
+                </div>
+
+                <h3>Segurança & Performance</h3>
+                <div class="feature-grid">
+                    <div class="feature-item">
+                        <h4>Autenticação</h4>
+                        <p>OAuth 2.0 com autenticação de parceiro Shopify e gerenciamento seguro de tokens</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4>Proteção de Dados</h4>
+                        <p>Criptografia ponta a ponta para dados sensíveis de clientes e inventário</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4>Monitoramento de Performance</h4>
+                        <p>Monitoramento em tempo real com scaling automatizado e rastreamento de erros</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4>Limitação de Taxa da API</h4>
+                        <p>Limitação inteligente de taxa e mecanismos de prevenção de abuso</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>Cronograma de Desenvolvimento</h2>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-week">SEMANA 1-2</div>
+                        <div class="timeline-desc">Configuração do projeto, scaffolding da app Shopify, design de banco
+                            de dados e planejamento da arquitetura</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-week">SEMANA 3-5</div>
+                        <div class="timeline-desc">Plugin de Cartas em Lote: Funcionalidade principal, import/export
+                            CSV, integração de banco de dados e conexões de API</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-week">SEMANA 6-8</div>
+                        <div class="timeline-desc">Assistente de Chat IA: Funcionalidade básica do chatbot, integração
+                            Shopify e sistema de rastreamento de pedidos</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-week">SEMANA 9-10</div>
+                        <div class="timeline-desc">Recursos avançados: Implementação OCR, rastreamento de preços, motor
+                            de personalização e treinamento de IA</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-week">SEMANA 11-12</div>
+                        <div class="timeline-desc">Testes, otimização, deploy, documentação e sessões de treinamento da
+                            equipe</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>Entregáveis</h2>
+                <ul class="deliverables-list">
+                    <li><strong>Duas Aplicações Shopify Completas:</strong> Plugins totalmente funcionais prontos para
+                        deploy em produção</li>
+                    <li><strong>Dashboard Administrativo:</strong> Interface de gerenciamento abrangente com analytics e
+                        opções de configuração</li>
+                    <li><strong>Documentação Técnica:</strong> Documentação completa da API e guias de arquitetura do
+                        sistema</li>
+                    <li><strong>Documentação do Usuário:</strong> Guias passo a passo e documentação de melhores
+                        práticas</li>
+                    <li><strong>Materiais de Treinamento:</strong> Tutoriais em vídeo e sessões de treinamento ao vivo
+                        para membros da equipe</li>
+                    <li><strong>Suite de Testes:</strong> Cobertura completa de testes unitários, de integração e
+                        end-to-end</li>
+                    <li><strong>Pacote de Deploy:</strong> Deploy pronto para produção com sistemas de monitoramento e
+                        backup</li>
+                    <li><strong>Suporte de 30 Dias:</strong> Suporte pós-lançamento, correções de bugs e otimização
+                        incluídos</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>Detalhamento do Investimento</h2>
+                <p><strong>Taxa de Desenvolvimento:</strong> R$120 por hora</p>
+                <div class="pricing-table">
+                    <div class="pricing-header">
+                        <h3>Custos de Desenvolvimento</h3>
+                    </div>
+                    <div class="pricing-body">
+                        <div class="pricing-row">
+                            <div class="pricing-item">Sistema de Gerenciamento de Cartas em Lote (200 horas)</div>
+                            <div class="pricing-value">R$24.000</div>
+                        </div>
+                        <div class="pricing-row">
+                            <div class="pricing-item">Assistente de Cliente Powered by IA (280 horas)</div>
+                            <div class="pricing-value">R$33.600</div>
+                        </div>
+                        <div class="pricing-row">
+                            <div class="pricing-item">Documentação & Treinamento (40 horas)</div>
+                            <div class="pricing-value">R$4.800</div>
+                        </div>
+                        <div class="pricing-row">
+                            <div class="pricing-item">Testes & Garantia de Qualidade (30 horas)</div>
+                            <div class="pricing-value">R$3.600</div>
+                        </div>
+                        <div class="pricing-row">
+                            <div class="pricing-item">Deploy & Suporte de 30 Dias (25 horas)</div>
+                            <div class="pricing-value">R$3.000</div>
+                        </div>
+                        <div class="pricing-row">
+                            <div class="pricing-item"><strong>INVESTIMENTO TOTAL DO PROJETO (575 horas)</strong></div>
+                            <div class="pricing-value"><strong>R$69.000</strong></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>Opções de Manutenção Contínua</h2>
+                <div class="pricing-table">
+                    <div class="pricing-header">
+                        <h3>Planos de Manutenção</h3>
+                    </div>
+                    <div class="pricing-body">
+                        <div class="pricing-row">
+                            <div class="pricing-item">Manutenção Mensal & Atualizações (10 horas/mês)</div>
+                            <div class="pricing-value">R$1.200/mês</div>
+                        </div>
+                        <div class="pricing-row">
+                            <div class="pricing-item">Desenvolvimento de Funcionalidades</div>
+                            <div class="pricing-value">R$120/hora</div>
+                        </div>
+                        <div class="pricing-row">
+                            <div class="pricing-item">Suporte de Emergência</div>
+                            <div class="pricing-value">R$180/hora</div>
+                        </div>
+                        <div class="pricing-row">
+                            <div class="pricing-item">Treinamento de Modelo IA & Atualizações</div>
+                            <div class="pricing-value">Incluído na manutenção</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>Por Que Escolher Esta Solução</h2>
+                <div class="feature-grid">
+                    <div class="feature-item">
+                        <h4>Desenvolvimento Especializado em TCG</h4>
+                        <p>Construído especificamente para lojas de trading card game com profundo conhecimento da
+                            indústria e expertise</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4>Arquitetura Escalável</h4>
+                        <p>Design moderno cloud-native que cresce com seu negócio e lida com aumento de carga</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4>Vantagem Competitiva</h4>
+                        <p>Recursos avançados e capacidades de IA não disponíveis em soluções de e-commerce genéricas
+                        </p>
+                    </div>
+                    <div class="feature-item">
+                        <h4>Equipe de Desenvolvimento Comprovada</h4>
+                        <p>Experiência com sistemas financeiros, processamento de big-data e integração de IA em escala
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="contact-section">
+            <h2>Próximos Passos</h2>
+            <p>Transforme as operações da sua loja TCG com soluções tecnológicas avançadas projetadas especificamente
+                para a indústria de trading cards.</p>
+
+            <div class="contact-info">
+                <div class="contact-item">
+                    <strong>Contato por Email</strong>
+                    fernando.olle@icloud.com<br>
+                    Questões técnicas e consultas sobre o projeto
+                </div>
+                <div class="contact-item">
+                    <strong>Consulta por Telefone</strong>
+                    +55 (11) 96373-9666<br>
+                    Agende uma discussão detalhada
+                </div>
+                <div class="contact-item">
+                    <strong>Cronograma do Projeto</strong>
+                    12 semanas a partir do início do projeto<br>
+                    Agendamento flexível disponível
+                </div>
+                <div class="contact-item">
+                    <strong>Validade da Proposta</strong>
+                    30 dias a partir da data de emissão<br>
+                    Modificações personalizadas disponíveis
+                </div>
+            </div>
+
+            <div style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #333;">
+                <p style="font-size: 10pt; margin: 0;">Esta proposta inclui desenvolvimento completo, testes, deploy,
+                    documentação e suporte pós-lançamento de 30 dias. Personalizações adicionais e integrações podem ser
+                    discutidas com base nos requisitos específicos do negócio.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Funcionalidade de impressão
+        document.addEventListener('DOMContentLoaded', function () {
+            // Adicionar botão de impressão para versão web
+            const printButton = document.createElement('button');
+            printButton.innerHTML = 'Imprimir Proposta';
+            printButton.style.cssText = `
+                position: fixed;
+                bottom: 20px;
+                right: 20px;
+                background: #ffffff;
+                color: #000000;
+                border: 2px solid #ffffff;
+                padding: 12px 20px;
+                cursor: pointer;
+                font-size: 11pt;
+                font-weight: 600;
+                text-transform: uppercase;
+                letter-spacing: 1px;
+                z-index: 1000;
+                transition: all 0.3s ease;
+            `;
+            printButton.onmouseover = () => {
+                printButton.style.background = '#000000';
+                printButton.style.color = '#ffffff';
+            };
+            printButton.onmouseout = () => {
+                printButton.style.background = '#ffffff';
+                printButton.style.color = '#000000';
+            };
+            printButton.onclick = () => window.print();
+            document.body.appendChild(printButton);
+        });
+    </script>
+    <script>
+        // Temporarily blank the title during print so the PDF "Title" is empty
+        const originalTitle = document.title;
+        const blankTitle = ' ';
+        const setBlankTitle = () => { document.title = blankTitle; };
+        const restoreTitle = () => { document.title = originalTitle; };
+
+        if ('onbeforeprint' in window) {
+            window.addEventListener('beforeprint', setBlankTitle);
+            window.addEventListener('afterprint', restoreTitle);
+        }
+
+        // Also handle Ctrl/Cmd+P initiated print in some browsers
+        window.matchMedia?.('print')?.addEventListener?.('change', e => {
+            if (e.matches) setBlankTitle(); else restoreTitle();
+        });
+    </script>
+</body>
+
+</html>
